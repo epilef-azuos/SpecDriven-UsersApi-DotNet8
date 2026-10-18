@@ -1,0 +1,32 @@
+@ApiUsuarios.API_HostAddress = http://localhost:5172
+
+### Criar utilizador
+POST {{ApiUsuarios.API_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Maria Silva",
+  "email": "maria@exemplo.com"
+}
+
+### Listar utilizadores
+GET {{ApiUsuarios.API_HostAddress}}/api/users
+Accept: application/json
+
+### Buscar utilizador por Id (substitua o Id)
+GET {{ApiUsuarios.API_HostAddress}}/api/users/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+### Atualizar utilizador (substitua o Id)
+PUT {{ApiUsuarios.API_HostAddress}}/api/users/00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+
+{
+  "name": "Maria Souza",
+  "email": "maria.souza@exemplo.com"
+}
+
+### Eliminar utilizador (substitua o Id)
+DELETE {{ApiUsuarios.API_HostAddress}}/api/users/00000000-0000-0000-0000-000000000000
+
+###
