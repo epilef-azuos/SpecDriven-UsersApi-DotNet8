@@ -98,7 +98,7 @@ Em vez de geração direta e não supervisionada de código por IA, o desenvolvi
 ## 🗺️ Roadmap de Evolução
 
 - [x] CRUD básico com Clean Architecture e SQLite
-- [ ] Implementação de Autenticação e Autorização via JWT (Role-Based)
-- [ ] Cifragem de senhas com algoritmo BCrypt
+- [x] Implementação de Autenticação e Autorização via JWT (Role-Based)
+- [x] Cifragem de senhas com algoritmo BCrypt
 - [ ] Pipeline de CI/CD automatizada com GitHub Actions
 - [ ] Suíte de testes automatizados com xUnit e FluentAssertions
