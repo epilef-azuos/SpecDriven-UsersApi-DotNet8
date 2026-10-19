@@ -18,6 +18,11 @@ public class UserRepository(AppDbContext context) : IUserRepository
         return await context.Users.FindAsync(id);
     }
 
+    public async Task<User?> GetByEmail(string email)
+    {
+        return await context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
+
     public async Task<IReadOnlyList<User>> GetAll()
     {
         return await context.Users.AsNoTracking().ToListAsync();
