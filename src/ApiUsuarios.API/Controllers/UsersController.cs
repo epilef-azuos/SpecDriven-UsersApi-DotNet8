@@ -5,10 +5,12 @@ using ApiUsuarios.Application.Users.Commands.UpdateUser;
 using ApiUsuarios.Application.Users.Queries.GetAllUsers;
 using ApiUsuarios.Application.Users.Queries.GetUserById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiUsuarios.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UsersController(ISender sender) : ControllerBase

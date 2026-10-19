@@ -1,5 +1,6 @@
 using ApiUsuarios.Domain.Interfaces;
 using ApiUsuarios.Infrastructure.Persistence;
+using ApiUsuarios.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,6 +17,8 @@ public static class DependencyInjection
 
         services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString));
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
+        services.AddScoped<IJwtTokenService, JwtTokenService>();
 
         return services;
     }
