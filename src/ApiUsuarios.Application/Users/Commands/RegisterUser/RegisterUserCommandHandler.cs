@@ -8,18 +8,13 @@ namespace ApiUsuarios.Application.Users.Commands.RegisterUser;
 public class RegisterUserCommandHandler(IUserRepository repository, IPasswordHasher passwordHasher)
     : IRequestHandler<RegisterUserCommand, UserDto>
 {
-    private static readonly string[] AllowedRoles = ["Admin", "User"];
+    private const string DefaultRole = "User";
 
     public async Task<UserDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(request.Password))
         {
             throw new ArgumentException("O campo 'password' é obrigatório.", nameof(request.Password));
-        }
-
-        if (!AllowedRoles.Contains(request.Role))
-        {
-            throw new ArgumentException("O perfil informado é inválido.", nameof(request.Role));
         }
 
         var existingUser = await repository.GetByEmail(request.Email);
@@ -29,7 +24,7 @@ public class RegisterUserCommandHandler(IUserRepository repository, IPasswordHas
             throw new ArgumentException("O e-mail informado já está cadastrado.", nameof(request.Email));
         }
 
-        var user = new User(request.Name, request.Email, passwordHasher.Hash(request.Password), request.Role);
+        var user = new User(request.Name, request.Email, passwordHasher.Hash(request.Password), DefaultRole);
 
         await repository.Add(user);
 
