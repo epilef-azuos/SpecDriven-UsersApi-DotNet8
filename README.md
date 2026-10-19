@@ -1,3 +1,5 @@
+![CI Status](https://github.com/epilef-azuos/SpecDriven-UsersApi-DotNet8/actions/workflows/ci.yml/badge.svg)
+
 # ApiUsuarios - Clean Architecture & Spec-Driven Development (.NET 8)
 
 API RESTful para gestão e manutenção de utilizadores desenvolvida em **.NET 8**, adotando os princípios de **Clean Architecture**, **SOLID** e o padrão **CQRS** com **MediatR**, persistida em **SQLite** através do **Entity Framework Core**.
@@ -100,5 +102,5 @@ Em vez de geração direta e não supervisionada de código por IA, o desenvolvi
 - [x] CRUD básico com Clean Architecture e SQLite
 - [x] Implementação de Autenticação e Autorização via JWT (Role-Based)
 - [x] Cifragem de senhas com algoritmo BCrypt
-- [ ] Pipeline de CI/CD automatizada com GitHub Actions
+- [x] Pipeline de CI/CD automatizada com GitHub Actions
 - [x] Suíte de testes automatizados com xUnit e FluentAssertions
