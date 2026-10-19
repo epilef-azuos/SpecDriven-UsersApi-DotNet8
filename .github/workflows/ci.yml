@@ -1,0 +1,29 @@
+name: CI - Build & Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v4
+
+    - name: Configurar .NET 8 SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restaurar dependências
+      run: dotnet restore ApiUsuarios.sln
+
+    - name: Compilar Solução (Release)
+      run: dotnet build ApiUsuarios.sln --configuration Release --no-restore
+
+    - name: Executar Testes Unitários
+      run: dotnet test ApiUsuarios.sln --configuration Release --no-build --verbosity normal --logger "trx"
