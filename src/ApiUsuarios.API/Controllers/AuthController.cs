@@ -15,7 +15,7 @@ public class AuthController(ISender sender) : ControllerBase
     {
         try
         {
-            var user = await sender.Send(new RegisterUserCommand(request.Name, request.Email, request.Password, request.Role));
+            var user = await sender.Send(new RegisterUserCommand(request.Name, request.Email, request.Password));
 
             return CreatedAtAction("GetById", "Users", new { id = user.Id }, user);
         }
